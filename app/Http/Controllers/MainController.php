@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 // php artisan make:controller --nome do contoller--
 class MainController extends Controller
-{
+{   
+    // retorna a view criada em resources
     public function index(){
-        echo "Hello Controller";
+        return view('main');
     }
 }
