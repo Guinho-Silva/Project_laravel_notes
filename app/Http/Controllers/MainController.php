@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {   
     // retorna a view criada em resources
-    public function index(){
-        return view('main');
+    public function index($value){
+        return view('main', ['value' =>$value]);
     }
 }

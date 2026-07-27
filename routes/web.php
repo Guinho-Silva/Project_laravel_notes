@@ -16,4 +16,6 @@ Route::get('/about', function(){
 });
 
 // Método criado dentro do controllador main
-Route::get('/main',[MainController::class, 'index']);
+
+// // buscando um valor da url atraves do value que é uma variavel
+Route::get('/main/{value}',[MainController::class, 'index']);
