@@ -12,6 +12,6 @@
 
 
     <!-- Usando a estrutura do blade ao invés de php -->
-     
+    <h3>Page 3</h3>
     <h3>The values is: {{ $value }}</h3>
 @endsection

@@ -19,3 +19,7 @@ Route::get('/about', function(){
 
 // // buscando um valor da url atraves do value que é uma variavel
 Route::get('/main/{value}',[MainController::class, 'index']);
+
+Route::get('/page2/{value}',[MainController::class, 'page2']);
+
+Route::get('/page3/{value}',[MainController::class, 'page3']);
