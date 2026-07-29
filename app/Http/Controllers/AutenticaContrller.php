@@ -11,6 +11,11 @@ class AutenticaContrller extends Controller
         return view('login');
     }
 
+    // Pega todas as informações subimetidas pelo formulario
+    public function loginSubmit(Request $request){
+        echo 'loginSubmit';
+    }
+
     // Método para carregar a view de login
     public function logoff(){
         echo 'logoff';
