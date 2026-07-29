@@ -13,7 +13,9 @@ class AutenticaContrller extends Controller
 
     // Pega todas as informações subimetidas pelo formulario
     public function loginSubmit(Request $request){
-        echo 'loginSubmit';
+        echo $request->input('text_username');
+        echo '<br>';
+        echo $request->input('text_password');
     }
 
     // Método para carregar a view de login
