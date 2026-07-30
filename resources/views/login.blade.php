@@ -14,12 +14,13 @@
                 <!-- form -->
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-12">
-                        <form action="/loginSubmit" method="post">
+                        <!-- novalidade remove a validação do HTML -->
+                        <form action="/loginSubmit" method="post" novalidate>
                             <!-- Injeta no formula de forma automatica pelo laravel um token que protege contra atks hackers, quando inspencionar a pagina, o laravel colocará no name = "_token"-->
                             @csrf
                             <div class="mb-3">
                                 <label for="text_username" class="form-label">Username</label>
-                                <input type="text" class="form-control bg-dark text-info" name="text_username"value ="{{ old('text_username') }}">
+                                <input type="email" class="form-control bg-dark text-info" name="text_username"value ="{{ old('text_username') }}" required>
                                 <!-- Mostra o Erro -->
                                 @error('text_username')
 
@@ -29,7 +30,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="text_password" class="form-label">Password</label>
-                                <input type="password" class="form-control bg-dark text-info" name="text_password" value ="{{ old('text_password') }}">
+                                <input type="password" class="form-control bg-dark text-info" name="text_password" value ="{{ old('text_password') }}"required>
                                 <!-- Mostra o Erro -->
                                 @error('text_password')
 
