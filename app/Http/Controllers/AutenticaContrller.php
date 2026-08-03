@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,16 +44,15 @@ class AutenticaContrller extends Controller
 
         $password = $request->input('txt_password');
         
-        // echo 'OK';
+        // Pega todos os usuarios do BD
 
-        // Teste database conexão
-        try{
-            DB::connection()->getPdo();
-            echo 'Conectado com sucesso';
-        }catch(\PDOException $e){
-            echo 'Falha na conexão: ' . $e->getMessage();
-        }
-        echo 'FIM!';
+        $users = User::all()->toArray();
+
+        echo '<pre>';
+        print_r($users);
+        echo '</pre>';
+
+        
         // teste dos dados que estão sendo passado por impossivel
         // echo $request->input('text_username');
         // echo '<br>';
