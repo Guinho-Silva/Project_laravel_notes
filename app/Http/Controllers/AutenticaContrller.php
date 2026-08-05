@@ -101,6 +101,12 @@ class AutenticaContrller extends Controller
 
     // Método para carregar a view de login
     public function logoff(){
-        echo 'logoff';
+    //    Logout da aplicação
+
+        // Limpa a sessão passando a chave de identificação
+        session()->forget('user');
+
+        // Redireciona para a pagina de login
+        return redirect()->to('/login');
     }
 }
