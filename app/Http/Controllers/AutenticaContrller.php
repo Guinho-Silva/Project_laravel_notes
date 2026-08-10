@@ -93,8 +93,9 @@ class AutenticaContrller extends Controller
                 'username'=>$user->username
             ]
         ]);
-
-        echo 'Login com Sucesso';
+        // redireciona para pagina principal
+        return redirect()->to('/');
+        // echo 'Login com Sucesso';
         //print_r($user);
         //echo '</pre>';
     }

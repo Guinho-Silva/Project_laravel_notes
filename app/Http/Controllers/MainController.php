@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {   
     public function index(){
-        echo "Estou no APP";
+        // echo "Estou no APP";
+        // carrega as notas dos usuarios
+
+        // mostra a view home
+
+        return view('home');
     }
 
     public function newNote(){
