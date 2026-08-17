@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 // php artisan make:controller --nome do contoller--
 class MainController extends Controller
@@ -26,5 +28,34 @@ class MainController extends Controller
 
     public function newNote(){
         echo 'Cria notas';
+    }
+
+    public function editNote($id){
+        
+        // Tratamento 
+        try{
+            // faz a descriptação
+            $id = Crypt::decrypt($id);
+        }catch(DecryptException $e){
+
+            // Em caso de erro, redireciona a index
+            return redirect()->route('index');
+        }
+        
+        echo "Editando a nota com o id = $id ";
+    }
+
+    public function deleteNote($id){
+        // Tratamento 
+        try{
+            // faz a descriptação
+            $id = Crypt::decrypt($id);
+        }catch(DecryptException $e){
+
+            // Em caso de erro, redireciona a index
+            return redirect()->route('index');
+        }
+        
+        echo "Deletando a nota com o id = $id ";
     }
 }
