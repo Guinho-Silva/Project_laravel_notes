@@ -45,7 +45,7 @@ class AutenticaContrller extends Controller
         $password = $request->input('text_password');
         
         // Pega todos os usuarios do BD
-
+        
         $users = User::all()->toArray();
 
         // echo '<pre>';
