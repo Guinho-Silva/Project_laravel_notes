@@ -1,58 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📝 Notes
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+Aplicação web desenvolvida com **Laravel** para gerenciamento de notas, permitindo que usuários autenticados possam criar, visualizar, atualizar e excluir registros.
+
+O projeto foi desenvolvido durante um **curso de Laravel na Udemy**, com o objetivo de colocar em prática, de forma introdutória, os principais fundamentos do framework.
+
+---
+
+## 🎯 Objetivo
+
+O principal objetivo do projeto foi compreender os fundamentos do **Laravel** através do desenvolvimento de uma aplicação prática.
+
+Durante o desenvolvimento, foram estudados conceitos relacionados à estrutura MVC, gerenciamento de rotas, criação de controllers e views, integração com banco de dados e operações CRUD utilizando o Eloquent ORM.
+
+> **Observação:** este é um projeto de estudo, desenvolvido de forma introdutória para consolidar os fundamentos do Laravel.
+
+---
+
+## 🚀 Funcionalidades
+
+- 🔐 Sistema de login
+- 👤 Diferentes tipos de usuários
+- 📝 Cadastro de notas
+- 📖 Visualização de notas
+- ✏️ Atualização de notas
+- 🗑️ Exclusão de notas
+- ♻️ Soft Delete
+- 🗑️ Hard Delete
+- 🔒 Hash/criptografia de informações sensíveis
+- 🗄️ Persistência de dados utilizando MySQL
+
+---
+
+## 📚 Conceitos estudados
+
+Durante o desenvolvimento do projeto, foram praticados os seguintes conceitos do Laravel:
+
+### Routes
+
+Definição das rotas da aplicação e direcionamento das requisições para os respectivos controllers.
+
+### Controllers
+
+Organização da lógica responsável pelo processamento das requisições e comunicação entre as diferentes partes da aplicação.
+
+### Views e Blade
+
+Criação das interfaces utilizando o sistema de templates **Blade** do Laravel.
+
+### Blade Layouts
+
+Utilização de layouts para reutilização de estruturas comuns entre diferentes páginas da aplicação.
+
+### MySQL
+
+Integração da aplicação com um banco de dados MySQL para armazenamento das informações.
+
+### Migrations
+
+Criação e gerenciamento da estrutura das tabelas do banco de dados através das migrations do Laravel.
+
+### Seeders
+
+Inserção de dados iniciais no banco de dados para facilitar o desenvolvimento e os testes da aplicação.
+
+### Eloquent ORM
+
+Utilização do **Eloquent ORM** para interação com o banco de dados através dos Models.
+
+### CRUD
+
+Implementação das operações fundamentais:
+
+- **Create** — criação de registros
+- **Read** — leitura de registros
+- **Update** — atualização de registros
+- **Delete** — exclusão de registros
+
+### Soft Delete e Hard Delete
+
+Implementação dos conceitos de exclusão lógica (**Soft Delete**) e exclusão permanente (**Hard Delete**) dos registros.
+
+### Autenticação
+
+Implementação de um sistema básico de login para controle de acesso à aplicação.
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+<p align="left">
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Blade-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Blade">
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </p>
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🏗️ Arquitetura
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O projeto utiliza a arquitetura **MVC (Model-View-Controller)** do Laravel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```text
+app/
+├── Http/
+│   └── Controllers/
+│
+└── Models/
 
-## Learning Laravel
+database/
+├── migrations/
+└── seeders/
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+resources/
+└── views/
+    ├── layouts/
+    └── ...
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+routes/
+└── web.php
