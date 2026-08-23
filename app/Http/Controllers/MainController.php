@@ -32,21 +32,20 @@ class MainController extends Controller
 
     public function editNote($id){
         
-        // Tratamento 
-        try{
-            // faz a descriptação
-            $id = Crypt::decrypt($id);
-        }catch(DecryptException $e){
+        $id = $this->decryptId($id);
 
-            // Em caso de erro, redireciona a index
-            return redirect()->route('index');
-        }
-        
         echo "Editando a nota com o id = $id ";
     }
 
     public function deleteNote($id){
-        // Tratamento 
+        $id = $this->decryptId($id);
+
+        echo "Deletando a nota com o id = $id ";
+    }
+
+    // Método privado do controlador Main, logo so está disponivel dentro do Main
+    private function decryptId($id){
+         // Tratamento de verififcação se o id esta encriptado
         try{
             // faz a descriptação
             $id = Crypt::decrypt($id);
@@ -56,6 +55,6 @@ class MainController extends Controller
             return redirect()->route('index');
         }
         
-        echo "Deletando a nota com o id = $id ";
+        return $id;
     }
 }
