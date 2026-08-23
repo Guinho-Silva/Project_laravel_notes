@@ -35,6 +35,8 @@ Route::middleware([CheckLogged::class])->group(function(){
     // Rota de edição
     Route::get('/editNote/{id}', [MainController::class, 'editNote'])->name('edit');
 
+    Route::post('/editNoteSubmit', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
+
     // Rota de delete
     Route::get('/deleteNote/{id}',[MainController::class, 'deleteNote'])->name('delete');
 

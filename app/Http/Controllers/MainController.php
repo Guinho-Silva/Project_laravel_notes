@@ -81,6 +81,14 @@ class MainController extends Controller
         
         $id = $this->decryptId($id);
 
+        // Carregar a nota
+
+        // Encotra a nota com o id passado
+        $note = Note::find($id);
+
+        // Mostra a edição da nota view
+        return view('edit_note', ['note' => $note]);
+
         echo "Editando a nota com o id = $id ";
     }
 
