@@ -29,6 +29,19 @@ Route::middleware([CheckLogged::class])->group(function(){
     // Rota da criação de notas
     Route::get('/newNote',[MainController::class,'newNote'])->name('cria_nota');
 
+    // Rota de craição de uma nova nota
+    Route::post('/newNoteSubmit',[MainController::class, 'newNoteSubmit'])->name('newNoteSubmit');
+
+    // Rota de edição
+    Route::get('/editNote/{id}', [MainController::class, 'editNote'])->name('edit');
+
+    Route::post('/editNoteSubmit', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
+
+    // Rota de delete
+    Route::get('/deleteNote/{id}',[MainController::class, 'deleteNote'])->name('delete');
+
+    Route::get('/deletNoteConfirm/{id}', [MainController::class, 'deletNoteConfirm'])->name('deletNoteConfirm');
+
     // Rota de logout
     Route::get('/logoff', [AutenticaContrller::class,'logoff'])->name('logout');
 });
