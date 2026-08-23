@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Models\User;
+use App\Services\Operations;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -96,6 +97,55 @@ class MainController extends Controller
         $id = $this->decryptId($id);
 
         echo "Deletando a nota com o id = $id ";
+    }
+
+    public function editNoteSubmit(Request $request){
+        // Validação do formulario
+         $request->validate(
+            // Regras
+            [
+                // Verifica se há uma informação no campo
+                'text_title' => 'required|min:3|max:200',
+                'text_note' => 'required|min:3|max:3000'
+            ],
+            // Mensagens de erros
+            [
+                'text_title.required' => 'O titulo da nota é obrigatório',
+
+                'text_tile.min' => 'O titulo deve ter pelo menos :min caracteres',
+
+                'text_tile.max' => 'O titulo deve ter no máximo :max caracteres',
+
+                'text_note.required' => 'A nota é obrigatório',
+
+                'text_note.min' => 'A nota deve ter pelo menos :min caracteres',
+
+                'text_note.max' => 'A nota deve ter no máximo :max caracteres'
+            ]
+        );
+
+        // Verifica se o id_note existe
+
+        if(!$request->mpte_id == null){
+            return redirect()->route('index');
+        }
+        // Decrypt note_id
+
+        $id = Operations::decryptId($request->note_id);
+
+        // Carregamento da note
+        $note = Note::find($id);
+
+        // Update note
+
+        $note->title = $request->text_title;
+
+        $note->text = $request->text_note;
+
+        $note->save();
+        // Redirecionamento a home
+
+        return redirect()->route('index');
     }
 
     // Método privado do controlador Main, logo so está disponivel dentro do Main
