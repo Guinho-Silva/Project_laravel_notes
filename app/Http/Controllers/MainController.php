@@ -93,12 +93,6 @@ class MainController extends Controller
         echo "Editando a nota com o id = $id ";
     }
 
-    public function deleteNote($id){
-        $id = $this->decryptId($id);
-
-        echo "Deletando a nota com o id = $id ";
-    }
-
     public function editNoteSubmit(Request $request){
         // Validação do formulario
          $request->validate(
@@ -148,6 +142,45 @@ class MainController extends Controller
         return redirect()->route('index');
     }
 
+    public function deleteNote($id){
+        $id = $this->decryptId($id);
+
+        // Carrega a nota
+
+        $note = Note::find($id);
+
+        // Mostra uma cofirmação de delete
+
+        return view('delete_note', ['note' => $note]);
+        // echo "Deletando a nota com o id = $id ";
+    }
+
+    public function deletNoteConfirm($id){
+        // Verifiva se o id esta descriptografado
+        $id = Operations::decryptId($id);
+        
+        // Carrega a note
+
+        $note = Note::find($id);
+
+        // 1. hard delete -> Significa que o registro vai ser removido do banco
+
+        $note->delete();
+
+        // 2. soft delete -> remove apenas da pagina, porém ainda existe no banco
+
+        // $note->deleted_at = date('Y:m:d H:i:s');
+        // $note->save();
+
+        // Ao fazer isso, devemos deixar o método de carregamento das notas desse jeito:
+        // $note = User::find($id)->notes()->whereNull->get()->toArray();
+
+        // Redireciona a home
+
+        return redirect()->route('index');
+    }
+
+   
     // Método privado do controlador Main, logo so está disponivel dentro do Main
     private function decryptId($id){
          // Tratamento de verififcação se o id esta encriptado

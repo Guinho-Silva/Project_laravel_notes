@@ -40,6 +40,8 @@ Route::middleware([CheckLogged::class])->group(function(){
     // Rota de delete
     Route::get('/deleteNote/{id}',[MainController::class, 'deleteNote'])->name('delete');
 
+    Route::get('/deletNoteConfirm/{id}', [MainController::class, 'deletNoteConfirm'])->name('deletNoteConfirm');
+
     // Rota de logout
     Route::get('/logoff', [AutenticaContrller::class,'logoff'])->name('logout');
 });
