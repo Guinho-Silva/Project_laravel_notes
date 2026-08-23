@@ -29,6 +29,9 @@ Route::middleware([CheckLogged::class])->group(function(){
     // Rota da criação de notas
     Route::get('/newNote',[MainController::class,'newNote'])->name('cria_nota');
 
+    // Rota de craição de uma nova nota
+    Route::post('/newNoteSubmit',[MainController::class, 'newNoteSubmit'])->name('newNoteSubmit');
+
     // Rota de edição
     Route::get('/editNote/{id}', [MainController::class, 'editNote'])->name('edit');
 
