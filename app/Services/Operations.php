@@ -15,7 +15,7 @@ class Operations{
         }catch(DecryptException $e){
 
             // Em caso de erro, redireciona a index
-            return redirect()->route('index');
+            return null;
         }
         
         return $value;

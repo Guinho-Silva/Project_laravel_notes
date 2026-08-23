@@ -127,6 +127,10 @@ class MainController extends Controller
 
         $id = Operations::decryptId($request->note_id);
 
+        if ($id === null){
+            return redirect()->route('index');
+        }
+
         // Carregamento da note
         $note = Note::find($id);
 
@@ -158,6 +162,10 @@ class MainController extends Controller
     public function deletNoteConfirm($id){
         // Verifiva se o id esta descriptografado
         $id = Operations::decryptId($id);
+
+        if ($id === null){
+            return redirect()->route('index');
+        }
         
         // Carrega a note
 
